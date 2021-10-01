@@ -7,12 +7,19 @@ A dapp that enables users to use a salary NFT as a collateral for a loan. Salary
 
 Prerequisites: [Node](https://nodejs.org/en/download/) plus [Yarn](https://classic.yarnpkg.com/en/docs/install/) and [Git](https://git-scm.com/downloads)
 
-> install and start your 👷‍ Hardhat chain:
+> install your 👷‍ Hardhat chain:
 
 ```bash
 cd super-collateral
 yarn install
-yarn chain
+```
+
+> start your local fork of Kovan testnet:
+
+Go to `packages/hardhat/package.json` and change `<key>` in `https://eth-kovan.alchemyapi.io/v2/<key>` to your [Alchemy](https://www.alchemy.com/) key. Then:
+```bash
+cd super-collateral
+yarn fork
 ```
 
 > in a second terminal window, start your 📱 frontend:
