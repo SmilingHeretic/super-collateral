@@ -61,6 +61,12 @@ module.exports = {
       
       */
     },
+    hardhat: {
+      forking: {
+        url: `https://eth-kovan.alchemyapi.io/v2/${process.env.KOVAN_ALCHEMY_KEY}`,
+        blockNumber: 27430852, 
+      }
+    },
 
     // rinkeby: {
     //   url: `https://rinkeby.infura.io/v3/${process.env.RINKEBY_INFURA_KEY}`,
@@ -90,28 +96,27 @@ module.exports = {
 
     rinkeby: {
       url: "https://rinkeby.infura.io/v3/460f40a260564ac4a4f4b3fffb032dad", // <---- YOUR INFURA ID! (or it won't work)
-      
-       //    url: "https://speedy-nodes-nyc.moralis.io/XXXXXXXXXXXXXXXXXXXXXXX/eth/rinkeby", // <---- YOUR MORALIS ID! (not limited to infura)
-      
+
+      //    url: "https://speedy-nodes-nyc.moralis.io/XXXXXXXXXXXXXXXXXXXXXXX/eth/rinkeby", // <---- YOUR MORALIS ID! (not limited to infura)
+
       accounts: {
         mnemonic: mnemonic(),
       },
     },
     kovan: {
       url: "https://kovan.infura.io/v3/460f40a260564ac4a4f4b3fffb032dad", // <---- YOUR INFURA ID! (or it won't work)
-    
+
       //    url: "https://speedy-nodes-nyc.moralis.io/XXXXXXXXXXXXXXXXXXXXXXX/eth/kovan", // <---- YOUR MORALIS ID! (not limited to infura)
-      
+
       accounts: {
         mnemonic: mnemonic(),
       },
     },
     mainnet: {
       url: "https://mainnet.infura.io/v3/460f40a260564ac4a4f4b3fffb032dad", // <---- YOUR INFURA ID! (or it won't work)
-      
+
       //      url: "https://speedy-nodes-nyc.moralis.io/XXXXXXXXXXXXXXXXXXXXXXXXX/eth/mainnet", // <---- YOUR MORALIS ID! (not limited to infura)
-        
-      gasPrice: mainnetGwei*1000000000,
+      gasPrice: mainnetGwei * 1000000000,
       accounts: {
         mnemonic: mnemonic(),
       },
@@ -147,7 +152,7 @@ module.exports = {
       accounts: {
         mnemonic: mnemonic(),
       },
-    },     
+    },
     polytest: {
       url: "https://speedy-nodes-nyc.moralis.io/XXXXXXXXXXXXXXXXXXXXXXX/polygon/mumbai",// <---- YOUR MORALIS ID! (not limited to infura)
       gasPrice: 1000000000,
@@ -286,10 +291,22 @@ module.exports = {
           },
         },
       },
+      {
+        version: "0.7.1",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+        },
+      },
     ],
   },
   ovm: {
     solcVersion: "0.7.6",
+  },
+  mocha: {
+    timeout: 500000,
   },
   namedAccounts: {
     deployer: {
