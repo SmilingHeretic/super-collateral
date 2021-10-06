@@ -61,13 +61,12 @@ module.exports = {
       
       */
     },
-    hardhat: {
+    kovan: {
       forking: {
         url: `https://eth-kovan.alchemyapi.io/v2/${process.env.KOVAN_ALCHEMY_KEY}`,
-        blockNumber: 27430852, 
-      }
+        blockNumber: 27430852,
+      },
     },
-
     // rinkeby: {
     //   url: `https://rinkeby.infura.io/v3/${process.env.RINKEBY_INFURA_KEY}`,
     //   accounts: [`${process.env.RINKEBY_DEPLOYER_PRIV_KEY}`],
