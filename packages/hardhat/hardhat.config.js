@@ -64,7 +64,7 @@ module.exports = {
     hardhat: {
       forking: {
         url: `https://eth-kovan.alchemyapi.io/v2/${process.env.KOVAN_ALCHEMY_KEY}`,
-        blockNumber: 27430852, 
+        blockNumber: 27560058, 
       }
     },
 
