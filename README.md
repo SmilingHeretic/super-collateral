@@ -16,10 +16,16 @@ yarn install
 
 > start your local fork of Kovan testnet:
 
-Go to `packages/hardhat/package.json` and change `<key>` in `https://eth-kovan.alchemyapi.io/v2/<key>` to your [Alchemy](https://www.alchemy.com/) key. Then:
 ```bash
 cd super-collateral
-yarn fork
+cp packages/hardhat/example.env packages/hardhat/.env
+```
+
+Set `KOVAN_ALCHEMY_KEY` in `packages/hardhat/.env` to your [Alchemy](https://www.alchemy.com/) key. Then:
+
+```bash
+cd super-collateral
+yarn chain
 ```
 
 > in a second terminal window, start your 📱 frontend:
