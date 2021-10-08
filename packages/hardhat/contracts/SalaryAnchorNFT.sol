@@ -16,8 +16,6 @@ contract SalaryAnchorNFT is ERC721, RedirectStreams {
         IConstantFlowAgreementV1 cfa,
         ISuperToken ethx
     ) payable ERC721( _name, _symbol) RedirectStreams(host, cfa, ethx) {
-        console.log("constructor");
-        console.log(msg.value);
         _mint(owner, 1);
     }
 

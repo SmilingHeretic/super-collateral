@@ -49,6 +49,7 @@ contract RedirectStreams is SuperAppBase {
     }
 
     function _changePrimaryReceiver(address newPrimaryReceiver) internal {
+        if (newPrimaryReceiver == primaryReceiver) return;
         int96 oldReceiverFlowRate = _getOutflowRate(primaryReceiver);
         int96 newReceiverFlowRate = _getOutflowRate(newPrimaryReceiver);
 
@@ -61,7 +62,6 @@ contract RedirectStreams is SuperAppBase {
         int96 flowRateChange = _cfa.getNetFlow(_ethx, address(this));
         int96 oldOutflowRate = _getOutflowRate(primaryReceiver);
         int96 newOutFlowRate = oldOutflowRate + flowRateChange;
-        console.log(uint256(flowRateChange), uint256(oldOutflowRate), uint256(newOutFlowRate));
         if (newOutFlowRate >= 0) {
             _updateOutflow(primaryReceiver, newOutFlowRate);
         }
