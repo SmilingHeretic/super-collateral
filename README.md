@@ -20,7 +20,7 @@ yarn install
 cd super-collateral
 cp packages/hardhat/example.env packages/hardhat/.env
 ```
-
+Copy `example.env` and name it `.env`
 Set `KOVAN_ALCHEMY_KEY` in `packages/hardhat/.env` to your [Alchemy](https://www.alchemy.com/) key. Then:
 
 ```bash
