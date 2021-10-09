@@ -148,17 +148,9 @@ describe("SuperCollateral Dapp", function () {
         ])
         await hostContract.connect(employerSigner).callAgreement(cfaAddress, txData, "0x")
 
-
-        // Dapp deploys loanContract
+        // Deploy the loan contract
         const LoanContract = await ethers.getContractFactory("LoanContract")
-        loanContract = await LoanContract.connect(dappSigner).deploy(
-            emmyAddress,
-            salaryAnchor.address,
-            ethers.utils.parseEther("0.5"),
-            ethers.utils.parseEther("0.1"),
-            Math.round(tokenPerMonth * 0.1),
-            {value: ethers.utils.parseEther("0.55")}
-        )
+        loanContract = await LoanContract.deploy()
         await loanContract.deployed()
 
     })
@@ -283,28 +275,49 @@ describe("SuperCollateral Dapp", function () {
     })
 
     describe("Loan contract", async function () {
-        xit("Loan contract initialized",  async function () {
+        it("User story", async function () {
+            console.log("After deployment")
+            await logFlows()
+            await logBalances("Emmy", emmySigner)
+            await logBalances("Dapp", dappSigner)
+            console.log("upkeep?", (await loanContract.isLoanRepaid()))
+            
+            console.log("The loan is prepared")
+            await loanContract.connect(dappSigner).prepareLoan(
+                emmyAddress,
+                salaryAnchor.address,
+                ethers.utils.parseEther("0.5"),
+                ethers.utils.parseEther("0.1"),
+                Math.round(tokenPerMonth * 0.1),
+                {value: ethers.utils.parseEther("0.55")}
+            )
+
             console.log(await loanContract.lender())
             console.log(await loanContract.borrower())
             console.log(ethers.utils.formatUnits(await loanContract.loanAmount()))
             console.log(ethers.utils.formatUnits(await loanContract.totalInterest()))
             console.log(ethers.utils.formatUnits(await loanContract.repayRate()))
             console.log(ethers.utils.formatUnits(await loanContract.overpayReturnDeposit()))
-            console.log(await loanContract.loanInitializedTimestamp())
-            console.log(await loanContract.initialized())
-        })
-
-        it("User story", async function () {
+            console.log((await loanContract.loanInitializedTimestamp()).toString())
+            console.log(await loanContract.status())
+            console.log()
+            
+            console.log("Loan is being initialized")
             await salaryAnchor.connect(emmySigner).approve(loanContract.address, 1)
             await loanContract.connect(emmySigner).initializeLoan()
-
+            
+            console.log("After initialization of the loan")
             await logFlows()
             await logBalances("Emmy", emmySigner)
             await logBalances("Dapp", dappSigner)
-
+            console.log("init timestamp", (await loanContract.loanInitializedTimestamp()).toString())
+            console.log("status", await loanContract.status())
+            console.log()
             console.log("repaid", ethers.utils.formatUnits(await loanContract.getAmountRepaid()))
             console.log("repaid", await loanContract.isLoanRepaid())
+            console.log()
 
+            // advance time
             await hre.network.provider.request({
                 method: "evm_increaseTime",
                 params: [10* 24 * 3600],
@@ -314,16 +327,19 @@ describe("SuperCollateral Dapp", function () {
                 params: [],
             })
             
-            console.log("repaid", ethers.utils.formatUnits(await loanContract.getAmountRepaid()))
-            console.log("repaid", await loanContract.isLoanRepaid())
-
-            // await loanContract.connect(emmySigner).onLoanReapid()
-
+            console.log("After some time, the loan is being repaid")
             await logFlows()
             await logBalances("Emmy", emmySigner)
             await logBalances("Dapp", dappSigner)
+            console.log("init timestamp", (await loanContract.loanInitializedTimestamp()).toString())
+            console.log("status", await loanContract.status())
+            console.log()
+            console.log("repaid", ethers.utils.formatUnits(await loanContract.getAmountRepaid()))
+            console.log("repaid?", await loanContract.isLoanRepaid())
+            // await loanContract.connect(emmySigner).performUpkeep("0x") // should fail
+            console.log()
 
-
+            console.log("Advance time some more")
             await hre.network.provider.request({
                 method: "evm_increaseTime",
                 params: [6 * 30 * 24 * 3600],
@@ -332,15 +348,29 @@ describe("SuperCollateral Dapp", function () {
                 method: "evm_mine",
                 params: [],
             })
-            console.log()
-            console.log("repaid", ethers.utils.formatUnits(await loanContract.getAmountRepaid()))
-            console.log("repaid", await loanContract.isLoanRepaid())
-            await loanContract.connect(emmySigner).onLoanReapid()
-            console.log()
-
+            console.log("After some time, the loan is being repaid")
             await logFlows()
             await logBalances("Emmy", emmySigner)
             await logBalances("Dapp", dappSigner)
+            console.log("init timestamp", (await loanContract.loanInitializedTimestamp()).toString())
+            console.log("status", await loanContract.status())
+            console.log()
+            console.log("repaid", ethers.utils.formatUnits(await loanContract.getAmountRepaid()))
+            console.log("repaid?", await loanContract.isLoanRepaid())
+            console.log()
+
+            console.log("Perform upkeep")
+            await loanContract.connect(emmySigner).performUpkeep("0x")
+
+            console.log("After onLoanRepaid()")
+            await logFlows()
+            await logBalances("Emmy", emmySigner)
+            await logBalances("Dapp", dappSigner)
+            console.log("init timestamp", (await loanContract.loanInitializedTimestamp()).toString())
+            console.log("status", await loanContract.status())
+            console.log()
+            console.log("repaid", ethers.utils.formatUnits(await loanContract.getAmountRepaid()))
+            console.log("upkeep?", await loanContract.isLoanRepaid())
         })
     })
 
