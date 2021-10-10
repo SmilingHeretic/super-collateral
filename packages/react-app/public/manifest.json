@@ -1,7 +1,8 @@
 {
-  "short_name": "🏗 Scaffold-Eth App",
+  "short_name": "Super Collateral",
   "start_url": ".",
-  "name": "🏗 Scaffold-Eth App",
+  "name": "Super Collateral",
+  "skylink": "https://100bubddthseja0qr3008bl350ajr6i2qr9uq4fptdtt2gi8mf4umso.siasky.net/",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +20,6 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
