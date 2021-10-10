@@ -1,6 +1,6 @@
 # SuperCollateral
 
-A dapp that enables users to use a salary NFT as a collateral for a loan. Salary NFT is an NFT that receives a salary in stream and redirects it to its owner. We use Superfuid to stream salary and Chainlink Keeper to trigger the required actions after the loan is repaid.
+A dapp that enables users to use a salary NFT as a collateral for a loan. Salary NFT is an NFT that receives salary in a stream and its owner has control over outflows from this NFT. We use Superfuid to stream salary and Chainlink Keeper to trigger the required actions after the loan is repaid.
 
 
 # 🏄‍♂️ Quick Start
