@@ -24,18 +24,18 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     //args: [ "Hello", ethers.utils.parseEther("1.5") ],
     args: [],
     log: true,
-  });  
+  });
 
   salaryAnchorNFT = await deploy("SalaryAnchorNFT", {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
     from: deployer,
     //args: [ "Hello", ethers.utils.parseEther("1.5") ],
-    args: [ 
+    args: [
       emmyAddress,
       "Salary Anchor",
       "SALARY", 
       superfluidHostAddress, 
-      cfaAddress, 
+      cfaAddress,
       ethxAddress,
     ],
     log: true,
