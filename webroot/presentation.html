@@ -14,6 +14,7 @@
 <!-- configuration parameters -->
 <meta name="defaultView" content="slideshow" />
 <meta name="controlVis" content="hidden" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <!-- style sheet links -->
 <link rel="stylesheet" href="includes/slides.css" type="text/css" media="projection" id="slideProj" />
 <link rel="stylesheet" href="includes/outline.css" type="text/css" media="screen" id="outlineStyle" />
@@ -55,7 +56,7 @@
 <div class="slide">
 <div class="splash" style="margin: 0 15% 0 15%; text-align:center">
 <img src="logo_streamingcollateral512.png" width="512" height="512" />
-<p style="margin:0.3em 0 0 0; font-size:1.3em; font-weight:bold">Finance for a Fluid Future</p>
+<h5 style="margin:0; font-size:1.3em;">Finance for a Fluid Future</h5>
 <!--<h1></h1>
 <h3>Kit Blake</h3>
 <h4>Co-founder</h4>-->
@@ -127,7 +128,11 @@
 <div class="slide">
 <h1>Demo</h1>
 <ul>
-  <li>For this hackathon we focused on the streaming salary and the loan contract that’s at the center of the action.</li>
+  <li>For this hackathon we focused on:</li>
+    <ul class="nonincremental">
+      <li>Salary streaming to the NFT anchor, implemented with <a href="https://superfluid.finance/">Superfluid</a>.</li>
+      <li>The loan contract at the center of the action, which utilizes a <a href="https://chain.link/solutions/keepers">Chainlink Keeper</a>.</li>
+    </ul>
   <li>Let’s see how it all works…👀</li>
 </ul>
 </div>
