@@ -20,7 +20,7 @@ sup {font-size: smaller; line-height: 1px;}
 
 .slide { height: 100%; padding: 175px 6% 4% 6%; background: url(../logo_streamingcollateral128.png) 25px 20px no-repeat; font-size: 120%; }
 .slide h1 {z-index: 1; margin: 0 20px 0 75px; padding: 0.15em; white-space: nowrap;
-  font: bold 150%/1em sans-serif;}
+  font: bold 150%/1em Roboto, sans-serif;}
 .slide h2 { margin-right: 2.5em;}
 .slide h3 {font-size: 130%; margin-right: 2.5em;}
 .slide h4 { margin-right: 2.5em;}
@@ -63,11 +63,11 @@ div#controls form {position: absolute; bottom: 0; right: 0; width: 100%;
 
 #slide0 {padding: 45px 4% 4% 4%; background: none;}
 #slide0 h1 {position: static; margin: 0 4.5em 0 0; padding: 240px 0 40px 48px;
-   font: bold 2em/1.2em sans-serif; white-space: normal; color: #000;}
+   font: bold 2em/1.2em Roboto, sans-serif; white-space: normal; color: #000;}
 #slide0 h2 {font: bold italic 1em sans-serif; margin: 0.25em; margin-right: 4.5em; padding-left: 48px;}
 #slide0 h3 {font-size: 1.5em; margin-right: 4.5em; padding-left: 48px;}
 #slide0 h4 {font-size: 1em; margin-top: 0; margin-right: 4.5em; padding-left: 48px;}
-div.imagery {padding: 65px 4% 4% 16%}
+div.imagery {padding: 5% 4% 4% 16%}
 
 ul.urls {list-style: none; display: inline; margin: 0;}
 .urls li {display: inline; margin: 0;}
