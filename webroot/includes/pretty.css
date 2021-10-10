@@ -1,6 +1,6 @@
 /* Following are the presentation styles -- edit away! */
 
-body {color: #236; font-size: 2em; font-family: sans-serif; background: url(atmospheric.gif) 0px 0 repeat-x; background-color: #dde5ee}
+body {color: #236; font-size: 2em; font-family: "Roboto", sans-serif; background: url(atmospheric.gif) 0px 0 repeat-x; background-color: #dde5ee}
 :link, :visited {text-decoration: none; color: #00C;}
 #controls :active {color: #88A !important;}
 #controls :focus {outline: 1px dotted #227;}
@@ -67,7 +67,7 @@ div#controls form {position: absolute; bottom: 0; right: 0; width: 100%;
 #slide0 h2 {font: bold italic 1em sans-serif; margin: 0.25em; margin-right: 4.5em; padding-left: 48px;}
 #slide0 h3 {font-size: 1.5em; margin-right: 4.5em; padding-left: 48px;}
 #slide0 h4 {font-size: 1em; margin-top: 0; margin-right: 4.5em; padding-left: 48px;}
-div.imagery {padding: 65px 4% 4% 18%}
+div.imagery {padding: 65px 4% 4% 16%}
 
 ul.urls {list-style: none; display: inline; margin: 0;}
 .urls li {display: inline; margin: 0;}
