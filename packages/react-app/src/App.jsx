@@ -525,6 +525,15 @@ function App(props) {
             */}
 
             <Contract
+              name="LoanContract"
+              signer={userSigner}
+              provider={localProvider}
+              address={address}
+              blockExplorer={blockExplorer}
+              contractConfig={contractConfig}
+            />
+
+            <Contract
               name="SalaryAnchorNFT"
               signer={userSigner}
               provider={localProvider}

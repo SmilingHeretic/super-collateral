@@ -375,7 +375,7 @@ describe("SuperCollateral Dapp", function () {
             console.log("upkeep?", await loanContract.isLoanRepaid())
         })
 
-        it("User story: 5 minute repay", async function () {
+        it("User story: 25 minute repay", async function () {
             console.log("After deployment")
             await logFlows()
             await logBalances("Emmy", emmySigner)
