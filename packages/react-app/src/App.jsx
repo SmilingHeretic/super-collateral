@@ -48,6 +48,23 @@ const { ethers } = require("ethers");
     (and then use the `useExternalContractLoader()` hook!)
 */
 
+
+import { getEntryLink, SkynetClient } from 'skynet-js';
+
+const client = new SkynetClient();
+
+// setup keys and skylink
+const seed = process.env.SKYNET_REGISTRY_SEED;
+const { publicKey, privateKey } = genKeyPairFromSeed(seed);
+const dataKey = "myResolverSkylinkForDocument";
+const skylink = "sia://100bubddthseja0qr3008bl350ajr6i2qr9uq4fptdtt2gi8mf4umso";
+
+// set a registry entry to point at 'skylink'
+client.db.setDataLink(privateKey, dataKey, skylink);
+
+// get the resolver skylink which references the registry entry
+const resolverSkylink = getEntryLink(publicKey, dataKey)
+
 /// 📡 What chain are your contracts deployed to?
 const targetNetwork = NETWORKS.localhost; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
@@ -508,7 +525,7 @@ function App(props) {
             */}
 
             <Contract
-              name="YourContract"
+              name="SalaryAnchorNFT"
               signer={userSigner}
               provider={localProvider}
               address={address}
