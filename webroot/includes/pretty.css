@@ -18,8 +18,8 @@ blockquote b i {font-style: italic;}
 kbd {font-weight: bold; font-size: 1em;}
 sup {font-size: smaller; line-height: 1px;}
 
-.slide { height: 100%; padding: 175px 6% 4% 6%; background: url(../logo_streamingcollateral128.png) 25px 20px no-repeat; font-size: 120%; }
-.slide h1 {z-index: 1; margin: 0 20px 0 75px; padding: 0.15em; white-space: nowrap;
+.slide { height: 100%; padding: 175px 6% 4%; background: url(../logo_streamingcollateral128.png) 30px 25px no-repeat; font-size: 120%; }
+.slide h1 {z-index: 1; margin: 0 6% 0 6%; padding: 0.15em; white-space: nowrap;
   font: bold 150%/1em Roboto, sans-serif;}
 .slide h2 { margin-right: 2.5em;}
 .slide h3 {font-size: 130%; margin-right: 2.5em;}
@@ -29,7 +29,7 @@ sup {font-size: smaller; line-height: 1px;}
 .slide code.old {color: silver;}
 .slide pre {padding: 0; margin: 0.25em 0 0.5em 0.5em; color: #533; font-size: 90%;}
 .slide pre code {display: block;}
-.slide ul {margin-left: 90px; margin-right: 6%; list-style: disc; padding-left:6%;}
+.slide ul {margin-left: 6%; margin-right: 6%; list-style: disc; padding-left:7%;}
 .slide li {margin-top: 0.75em; margin-right: 0;}
 .slide ul ul {margin-left: 0; line-height: 1.2;}
 .slide ul ul li {margin: .2em; font-size: 90%; list-style: square;}
@@ -67,7 +67,8 @@ div#controls form {position: absolute; bottom: 0; right: 0; width: 100%;
 #slide0 h2 {font: bold italic 1em sans-serif; margin: 0.25em; margin-right: 4.5em; padding-left: 48px;}
 #slide0 h3 {font-size: 1.5em; margin-right: 4.5em; padding-left: 48px;}
 #slide0 h4 {font-size: 1em; margin-top: 0; margin-right: 4.5em; padding-left: 48px;}
-div.imagery {padding: 5% 4% 4% 16%}
+div.imagery {padding: 6% 4% 4% 12%}
+div.imagery img {width: auto; max-width: 80%; height: auto;}
 
 ul.urls {list-style: none; display: inline; margin: 0;}
 .urls li {display: inline; margin: 0;}
